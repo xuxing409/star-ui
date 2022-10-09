@@ -57,8 +57,7 @@ describe('Button', () => {
       </Button>
     )
     const linkElement = screen.getByText(/click me/i)
-    fireEvent.click(linkElement)
-    fireEvent.focusIn(linkElement)
+    fireEvent.focus(linkElement)
 
     expect(onFocus).toBeCalled()
   })

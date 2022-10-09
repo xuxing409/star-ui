@@ -1,18 +1,16 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, CSSProperties } from 'react'
 import classNames from 'classnames'
 
 import './index.scss'
 
-interface buttonProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface inputProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string
   type?: 'normal' | 'primary' | 'dashed' | 'link' | 'text'
   size?: 'small' | 'medium' | 'large'
   children?: ReactNode
-  style?: React.CSSProperties
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
-  onBlur?: React.FocusEventHandler<HTMLButtonElement>
+  style?: CSSProperties
 }
-const Button = (props: buttonProps) => {
+const Input = (props: inputProps) => {
   const {
     className,
     type = 'normal',
@@ -30,16 +28,14 @@ const Button = (props: buttonProps) => {
     [className as string]: !!className
   })
   return (
-    <button
+    <Input
       {...others}
       className={cls}
       style={style}
-      onClick={onClick}
-      onBlur={onBlur}
     >
       {children}
-    </button>
+    </Input>
   )
 }
 
-export default Button
+export default Input
