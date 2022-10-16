@@ -1,31 +1,31 @@
 import React from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
-import Input from './index.tsx.hbs'
+import Radio from './index'
 
-describe('Input', () => {
-  test('renders Input', () => {
-    render(<Input>click me</ Input>)
+describe('Radio', () => {
+  test('renders Radio', () => {
+    render(<Radio>click me</ Radio>)
     const linkElement = screen.getByText(/click me/i)
     expect(linkElement).toBeInTheDocument()
   })
 
 
-  test('renders primary Input', () => {
-    const { container } = render(<Input type="primary">click me</ Input>)
+  test('renders primary Radio', () => {
+    const { container } = render(<Radio type="primary">click me</ Radio>)
     expect(container.querySelector('.ant-btn-primary')).toBeInTheDocument()
   })
 
-  test('renders small Input', () => {
-    const { container } = render(<Input size="small">click me</ Input>)
+  test('renders small Radio', () => {
+    const { container } = render(<Radio size="small">click me</ Radio>)
     expect(container.querySelector('.ant-btn-small')).toBeInTheDocument()
   })
 
   test('should support click', () => {
     const onClick = jest.fn()
     render(
-      <Input type="primary" onClick={onClick}>
+      <Radio type="primary" onClick={onClick}>
         click me
-      </ Input>
+      </ Radio>
     )
     const linkElement = screen.getByText(/click me/i)
     fireEvent.click(linkElement)

@@ -1,22 +1,22 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import Input from './index.tsx.hbs'
+import Radio from './index'
 
 export default {
-  title: 'Example/Input',
-  component: Input,
+  title: 'Example/Radio',
+  component: Radio,
   argTypes: {
     backgroundColor: { control: 'color' }
   }
-} as ComponentMeta<typeof Input>
+} as ComponentMeta<typeof Radio>
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
+const Template: ComponentStory<typeof Radio> = (args) => <Radio {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
   type: 'primary',
-  children: 'Input',
+  children: 'Radio',
   size: 'medium'
 }
 
@@ -24,7 +24,7 @@ Primary.args = {
 export const Basic = () => {
   return (
     <>
-      <Input type="primary">Primary  Input</ Input>
+      <Radio type="primary">Primary  Radio</ Radio>
     </>
   )
 }

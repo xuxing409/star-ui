@@ -23,7 +23,10 @@ const lowCase = (str) =>
   const dirName = lowCase(components);
   const componentName = varCase(components);
   // 生成文件夹
-  spawn('mkdir', ['-p', path.join(process.cwd(), `src/${dirName}`)]);
+  spawn('mkdir', ['-p', path.join(process.cwd(), `src/${dirName}`)], {
+    stdio: 'inherit',
+    shell: process.platform === 'win32'
+  });
 
   const tplFiles = glob.sync(path.join(__dirname, 'template/*.hbs'));
 
